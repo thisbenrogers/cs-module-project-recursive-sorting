@@ -58,10 +58,10 @@ def merge_sort_in_place(arr, l, r):
     while tracker <= len(arr):
         h = 0
         for h in range(0, len(arr), tracker * 2):
-            l, r = h, min(len(arr), h + 2 * tracker)
+            left, right = h, min(len(arr), h + 2 * tracker)
             mid = h + tracker
-            p, q = l, mid
-            while p < mid and q < r:
+            p, q = left, mid
+            while p < mid and q < right:
                 if arr[p] <= arr[q]:
                     p += 1
                 else:
