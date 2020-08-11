@@ -3,7 +3,6 @@ def binary_search(arr, target, start, end):
     if not arr: # return -1 if list is empty
         return -1
 
-    # ! CAN change to while
     while end >= start:
         mid = (start + end) // 2
         if arr[mid] == target: # if the mid is the target
