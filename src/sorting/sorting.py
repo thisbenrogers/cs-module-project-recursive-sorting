@@ -52,7 +52,7 @@ def merge_sort_in_place(arr, l, r):
     # ?     61 uses min() to smoothly transition values on later passes
     # ?
     # ?     Much of the work is happening in the slicing
-    # ?     assigments on line 69, then the swap on 71
+    # ?     assigments on line 69, then the increment on 71
 
     tracker = 1
     while tracker <= len(arr):
