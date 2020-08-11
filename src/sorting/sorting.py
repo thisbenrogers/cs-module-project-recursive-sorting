@@ -37,20 +37,39 @@ def merge_sort(arr):
 # or data structures; it can only re-use the memory it was given as input
 def merge_in_place(arr, start, mid, end):
     # Your code here
-    s2 = mid + 1
-    if arr[mid] <= arr[s2]:
-        return
-    while start <= mid and s2 <= end:
-
+    pass
 
 
 def merge_sort_in_place(arr, l, r):
-    # Your code here
-    if l < r:
-        mid = l + (r - 1) // 2
-        merge_sort_in_place(arr, l, m)
-        merge_sort_in_place(arr, m + 1, r)
+    # ? To explain what is going on here:
+    # ?     This algorithm is merging increasingly
+    # ?     larger portions (doubling) of the input arr.
+    # ?     
+    # ?     72 doubles the tracker until it's large enough to escape
+    # ?     the 'while' on 58, then the sorted array is returned
+    # ?     
+    # ?     60 ues the doubling-tracker for steps in the range, 
+    # ?     61 uses min() to smoothly transition values on last pass
+    # ?
+    # ?     Much of the work is happening in the slicing
+    # ?     assigments on line 69, then the swap on 71
 
-        merge_in_place(arr, l, m, r)
+    tracker = 1
+    while tracker <= len(arr):
+        h = 0
+        for h in range(0, len(arr), tracker * 2):
+            l, r = h, min(len(arr), h + 2 * tracker)
+            mid = h + tracker
+            p, q = l, mid
+            while p < mid and q < r:
+                if arr[p] <= arr[q]:
+                    p += 1
+                else:
+                    temp = arr[q]
+                    arr[p + 1: q + 1] = arr[p:q]
+                    arr[p] = temp
+                    p, mid, q = p + 1, mid + 1, q + 1
+        tracker *= 2
+    return arr
 
 
