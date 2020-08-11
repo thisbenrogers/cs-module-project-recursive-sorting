@@ -49,7 +49,7 @@ def merge_sort_in_place(arr, l, r):
     # ?     the 'while' on 58, then the sorted array is returned
     # ?     
     # ?     60 ues the doubling-tracker for steps in the range, 
-    # ?     61 uses min() to smoothly transition values on last pass
+    # ?     61 uses min() to smoothly transition values on later passes
     # ?
     # ?     Much of the work is happening in the slicing
     # ?     assigments on line 69, then the swap on 71
