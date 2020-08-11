@@ -2,7 +2,9 @@
 def binary_search(arr, target, start, end):
     if not arr: # return -1 if list is empty
         return -1
-    if end >= start:
+
+    # ! CAN change to while
+    while end >= start:
         mid = (start + end) // 2
         if arr[mid] == target: # if the mid is the target
             return mid
@@ -21,5 +23,28 @@ def binary_search(arr, target, start, end):
 # or iteratively
 def agnostic_binary_search(arr, target):
     # Your code here
-    pass
+
+    if not arr:
+        return -1
+
+    start = 0
+    end = len(arr) - 1
+
+    is_ascending = arr[start] < arr[end]
+
+    while start <= end:
+        mid = (start + end) // 2
+        if arr[mid] == target:
+            return mid
+        if is_ascending:
+            if arr[mid] > target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        else:
+            if arr[mid] < target:
+                end = mid - 1
+            else:
+                start = mid + 1
+    return -1
 
