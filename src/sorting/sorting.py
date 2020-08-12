@@ -1,6 +1,4 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
-from heapq import merge
-
 def helper_merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [] * elements
